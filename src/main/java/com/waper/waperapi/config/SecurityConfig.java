@@ -24,7 +24,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/public/**").permitAll()
                 .anyRequest().authenticated()
             )
-            .httpBasic(basic -> {});
+            .formLogin(form -> form.permitAll()); // genera /login automaticamente
 
         return http.build();
     }
