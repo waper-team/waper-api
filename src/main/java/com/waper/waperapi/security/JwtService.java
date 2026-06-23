@@ -6,7 +6,9 @@ import io.jsonwebtoken.security.Keys;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.Date;
+import java.util.Map;
 import javax.crypto.SecretKey;
+import com.waper.waperapi.model.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -24,12 +26,16 @@ public class JwtService {
         this.expirationSeconds = expirationSeconds;
     }
 
-    public String generateToken(String username) {
+    public String generateToken(User user) {
         Instant now = Instant.now();
         Instant expiry = now.plusSeconds(expirationSeconds);
 
         return Jwts.builder()
-            .subject(username)
+            .subject(user.getEmail())
+            .claims(Map.of(
+                "id", user.getId(),
+                "role", user.getRole()
+            ))
             .issuedAt(Date.from(now))
             .expiration(Date.from(expiry))
             .signWith(signingKey)

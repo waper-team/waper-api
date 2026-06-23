@@ -1,4 +1,4 @@
 package com.waper.waperapi.dto;
 
-public record AuthResponse(String token, long expiresInSeconds) {
+public record AuthResponse(String token, long expiresInSeconds, UserResponse user) {
 }
