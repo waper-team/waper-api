@@ -58,6 +58,18 @@ class UserControllerTest {
     }
 
     @Test
+    void testGetUserByIdNotFound() {
+        when(userRepository.findById("999")).thenReturn(Optional.empty());
+
+        ResponseEntity<?> response = userController.getUserById("999", authentication);
+
+        assertNotNull(response);
+        assertEquals(404, response.getStatusCode().value());
+
+        verify(userRepository, times(1)).findById("999");
+    }
+
+    @Test
     void testCreateUserSuccess() {
         UserCreateRequest request = new UserCreateRequest("newuser", "password123", "email@test.com", "User Full Name");
 
