@@ -42,7 +42,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest(
-    classes = UserIntegrationTests.IntegrationConfig.class,
+    classes = UserIntegrationTest.IntegrationConfig.class,
     properties = {
         "spring.config.import=",
         "jwt.secret=waper-integration-test-secret-only-not-for-production-1234567890",
@@ -51,7 +51,7 @@ import org.springframework.test.web.servlet.MockMvc;
     }
 )
 @AutoConfigureMockMvc
-class UserIntegrationTests {
+class UserIntegrationTest {
 
     // Importamos los componentes reales del flujo sin escanear MongoConfig.
     // Solo se excluye la infraestructura de persistencia; los filtros siguen activos.

@@ -53,7 +53,7 @@ Todas las clases de prueba unitaria se encuentran ubicadas en el directorio de p
    - **Aserciones:** Verifica que el objeto retornado contenga el ID asignado, el nombre de usuario extraído de la autenticación, el payload correspondiente y la marca de tiempo de recepción.
 
 ## 5. Verificación y Resultado de Ejecución
-Las pruebas fueron ejecutadas exitosamente utilizando Maven wrapper (`./mvnw test`). El resultado confirma la compilación correcta y la ejecución satisfactoria de todas las pruebas:
+Las pruebas fueron ejecutadas exitosamente utilizando Maven wrapper (`./mvnw test -Dtest=*Test`). El resultado confirma la compilación correcta y la ejecución satisfactoria de todas las pruebas:
 
 ```text
 [INFO] -------------------------------------------------------
